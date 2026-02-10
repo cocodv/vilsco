@@ -118,7 +118,7 @@ const FounderSection = () => {
           boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
         }}
       >
-        <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '10px' }}>Jane Doe</h3>
+        <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '10px' }}>Marie Patricia Lars</h3>
         <p style={{ color: '#7b2ff7', fontWeight: '600', marginBottom: '15px' }}>Founder & CEO</p>
         <p style={{ fontStyle: 'italic', color: '#555', fontSize: '1.1rem' }}>
           "I started Vlisco to combine passion, creativity, and quality in every fabric we craft.

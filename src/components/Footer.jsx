@@ -16,7 +16,9 @@ const Footer = () => {
         <div>
           <h3>Vlisco</h3>
           <p>Premium fabrics for corporate & sales clients. Natural elegance in linen, cashmere, and wool.</p>
-          <p>Email: info@vlisco.com</p>
+          <p>General / Sales / Orders: <a href="mailto:info@vlisco.work">info@vlisco.work</a></p>
+          <p>Customer Complaints: <a href="mailto:customerservice@vlisco.work">customerservice@vlisco.work</a></p>
+          <p>Collaborations / Discounts: <a href="mailto:mariepatricialars@vlisco.work">mariepatricialars@vlisco.work</a></p>
           <p>Phone: +44 123 456 7890</p>
         </div>
 
@@ -34,7 +36,7 @@ const Footer = () => {
         <div>
           <h4>Request Prospectus</h4>
           <p>Receive our detailed catalog of fabrics and services.</p>
-          <a href="mailto:info@vlisco.com">Request Now</a>
+          <a href="mailto:info@vlisco.work">Request Now</a>
         </div>
 
         <div>
