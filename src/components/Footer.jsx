@@ -21,9 +21,14 @@ const Footer = () => {
         <div>
           <h3>Vlisco</h3>
           <p>Premium fabrics for corporate & sales clients. Natural elegance in linen, cashmere, and wool.</p>
+          
+          <br></br>
           <p>General / Sales / Orders: <a href="mailto:info@vlisco.work">info@vlisco.work</a></p>
+          <br></br>
           <p>Customer Complaints: <a href="mailto:customerservice@vlisco.work">customerservice@vlisco.work</a></p>
+          <br></br>
           <p>Collaborations / Discounts: <a href="mailto:mariepatricialars@vlisco.work">mariepatricialars@vlisco.work</a></p>
+          <br></br>
           <p>Phone: +44 123 456 7890</p>
         </div>
 
