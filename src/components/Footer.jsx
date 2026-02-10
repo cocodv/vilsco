@@ -102,23 +102,31 @@ const Footer = () => {
 
       {/* Optional CSS for accordion */}
       <style jsx>{`
-        .accordion button {
-          width: 100%;
-          text-align: left;
-          padding: 10px;
-          background: #f2f2f2;
-          border: none;
-          cursor: pointer;
-          font-weight: bold;
-          margin-bottom: 5px;
-        }
-        .accordion-content {
-          padding: 10px;
-          background: #fafafa;
-          border-left: 3px solid #555;
-          margin-bottom: 10px;
-        }
-      `}</style>
+  .accordion button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background: #4B0082; /* dark purple */
+    color: #ffffff;       /* white text */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  .accordion button:hover {
+    background: #6A0DAD; /* lighter purple on hover */
+  }
+  .accordion-content {
+    padding: 10px;
+    background: #f8f8f8;  /* light gray for readability */
+    color: #000000;       /* black text */
+    border-left: 3px solid #4B0082;
+    margin-bottom: 10px;
+    border-radius: 0 5px 5px 0;
+  }
+`}</style>
+
     </footer>
   );
 };
