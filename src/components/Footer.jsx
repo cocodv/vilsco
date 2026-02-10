@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 
 const Footer = () => {
   const [data, setData] = useState({ name: '', email: '', message: '' });
+  const [openAccordion, setOpenAccordion] = useState(null); // track which accordion is open
 
   const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Thank you! We will get back to you shortly.');
     setData({ name: '', email: '', message: '' });
+  };
+
+  const toggleAccordion = (index) => {
+    setOpenAccordion(openAccordion === index ? null : index);
   };
 
   return (
@@ -24,13 +29,56 @@ const Footer = () => {
 
         <div>
           <h4>Policies & Support</h4>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Refund Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Shipping & Delivery</a></li>
-            <li><a href="#">Customer Support</a></li>
-          </ul>
+          <div className="accordion">
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(0)}>
+                Privacy Policy
+              </button>
+              {openAccordion === 0 && (
+                <div className="accordion-content">
+                  <p>We value your privacy and never share your personal information with third parties. All data is stored securely in compliance with international standards.</p>
+                  <p>Our cookies are only used to improve your browsing experience and tailor our services to your preferences.</p>
+                </div>
+              )}
+            </div>
+
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(1)}>
+                Refund Policy
+              </button>
+              {openAccordion === 1 && (
+                <div className="accordion-content">
+                  <p>We offer hassle-free refunds within 14 days of purchase. Simply contact our customer service to initiate a refund.</p>
+                  <p>All returns must include original packaging, and items must be unworn and unused.</p>
+                </div>
+              )}
+            </div>
+
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(2)}>
+                Terms & Conditions
+              </button>
+              {openAccordion === 2 && (
+                <div className="accordion-content">
+                  <p>All sales are subject to our terms and conditions. By purchasing from Vlisco, you agree to our policies on product usage, liability, and warranty.</p>
+                  <p>We reserve the right to update these terms at any time; please check back regularly.</p>
+                </div>
+              )}
+            </div>
+
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(3)}>
+                Shipping & Delivery
+              </button>
+              {openAccordion === 3 && (
+                <div className="accordion-content">
+                  <p>All shipping is done from Norway using reliable international carriers.</p>
+                  <p>Delivery times typically range from 3–10 business days, depending on your location. Tracking information is provided for all shipments.</p>
+                  <p>Customs duties and taxes are the responsibility of the recipient.</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         <div>
@@ -49,7 +97,28 @@ const Footer = () => {
           </form>
         </div>
       </div>
+
       <div className="bottom-bar">&copy; {new Date().getFullYear()} Vlisco. All rights reserved.</div>
+
+      {/* Optional CSS for accordion */}
+      <style jsx>{`
+        .accordion button {
+          width: 100%;
+          text-align: left;
+          padding: 10px;
+          background: #f2f2f2;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .accordion-content {
+          padding: 10px;
+          background: #fafafa;
+          border-left: 3px solid #555;
+          margin-bottom: 10px;
+        }
+      `}</style>
     </footer>
   );
 };
