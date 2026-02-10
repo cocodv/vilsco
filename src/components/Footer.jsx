@@ -29,7 +29,8 @@ const Footer = () => {
           <br></br>
           <p>Collaborations / Discounts: <a href="mailto:mariepatricialars@vlisco.work">mariepatricialars@vlisco.work</a></p>
           <br></br>
-          <p>Phone: +44 123 456 7890</p>
+         <p>Phone: +47 1234 5678</p>
+
         </div>
 
         <div>
