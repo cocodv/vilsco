@@ -1,132 +1,126 @@
-import React, { useState, useEffect } from 'react';
-import meetn from '../assets/meetn.jpg';
-import mtnnn from '../assets/mtnnn.jpg';
-import smmmm from '../assets/smmmm.jpg';
-import vvvvv from '../assets/vvvvv.jpg';
+import React, { useState } from 'react';
 
-const FounderSection = () => {
-  const images = [meetn, mtnnn, smmmm, vvvvv];
-  const [current, setCurrent] = useState(0);
+const Footer = () => {
+  const [data, setData] = useState({ name: '', email: '', message: '' });
+  const [openAccordion, setOpenAccordion] = useState(null); // track which accordion is open
 
-  // Auto-slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [images.length]);
+  const handleChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Thank you! We will get back to you shortly.');
+    setData({ name: '', email: '', message: '' });
+  };
+
+  const toggleAccordion = (index) => {
+    setOpenAccordion(openAccordion === index ? null : index);
+  };
 
   return (
-    <section
-      className="founder-section"
-      style={{
-        background: '#fef8f0',
-        padding: '100px 20px',
-        textAlign: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <h2 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '20px', color: '#4b0082' }}>
-        Meet Our Founder
-      </h2>
-      <p style={{ fontSize: '1.2rem', color: '#555', maxWidth: '700px', marginBottom: '50px' }}>
-        The heart of Vlisco lies in its founder’s vision. Passionate about fabrics, innovation, 
-        and quality, they have guided Vlisco to combine elegance, creativity, and sustainability 
-        in every product. Learn more about their journey and the principles that inspire our work.
-      </p>
+    <footer id="footer">
+      <div className="footer-grid">
+        <div>
+          <h3>Vlisco</h3>
+          <p>Premium fabrics for corporate & sales clients. Natural elegance in linen, cashmere, and wool.</p>
+          <p>General / Sales / Orders: <a href="mailto:info@vlisco.work">info@vlisco.work</a></p>
+          <p>Customer Complaints: <a href="mailto:customerservice@vlisco.work">customerservice@vlisco.work</a></p>
+          <p>Collaborations / Discounts: <a href="mailto:mariepatricialars@vlisco.work">mariepatricialars@vlisco.work</a></p>
+          <p>Phone: +44 123 456 7890</p>
+        </div>
 
-      <div
-        className="founder-carousel"
-        style={{
-          position: 'relative',
-          maxWidth: '500px',
-          width: '100%',
-          marginBottom: '40px',
-        }}
-      >
-        <img
-          src={images[current]}
-          alt="Founder"
-          style={{
-            width: '100%',
-            height: '450px',
-            objectFit: 'cover',
-            borderRadius: '30px',
-            boxShadow: '0 15px 40px rgba(0,0,0,0.2)',
-            transition: 'opacity 0.7s ease-in-out',
-          }}
-        />
+        <div>
+          <h4>Policies & Support</h4>
+          <div className="accordion">
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(0)}>
+                Privacy Policy
+              </button>
+              {openAccordion === 0 && (
+                <div className="accordion-content">
+                  <p>We value your privacy and never share your personal information with third parties. All data is stored securely in compliance with international standards.</p>
+                  <p>Our cookies are only used to improve your browsing experience and tailor our services to your preferences.</p>
+                </div>
+              )}
+            </div>
 
-        {/* Carousel Buttons */}
-        <button
-          className="prev"
-          onClick={() => setCurrent((current - 1 + images.length) % images.length)}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '-40px',
-            transform: 'translateY(-50%)',
-            background: '#7b2ff7',
-            color: '#fff',
-            border: 'none',
-            padding: '12px 16px',
-            fontSize: '1.5rem',
-            borderRadius: '50%',
-            cursor: 'pointer',
-            transition: 'background 0.3s',
-          }}
-          onMouseOver={(e) => (e.target.style.background = '#f107a3')}
-          onMouseOut={(e) => (e.target.style.background = '#7b2ff7')}
-        >
-          ‹
-        </button>
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(1)}>
+                Refund Policy
+              </button>
+              {openAccordion === 1 && (
+                <div className="accordion-content">
+                  <p>We offer hassle-free refunds within 14 days of purchase. Simply contact our customer service to initiate a refund.</p>
+                  <p>All returns must include original packaging, and items must be unworn and unused.</p>
+                </div>
+              )}
+            </div>
 
-        <button
-          className="next"
-          onClick={() => setCurrent((current + 1) % images.length)}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            right: '-40px',
-            transform: 'translateY(-50%)',
-            background: '#7b2ff7',
-            color: '#fff',
-            border: 'none',
-            padding: '12px 16px',
-            fontSize: '1.5rem',
-            borderRadius: '50%',
-            cursor: 'pointer',
-            transition: 'background 0.3s',
-          }}
-          onMouseOver={(e) => (e.target.style.background = '#f107a3')}
-          onMouseOut={(e) => (e.target.style.background = '#7b2ff7')}
-        >
-          ›
-        </button>
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(2)}>
+                Terms & Conditions
+              </button>
+              {openAccordion === 2 && (
+                <div className="accordion-content">
+                  <p>All sales are subject to our terms and conditions. By purchasing from Vlisco, you agree to our policies on product usage, liability, and warranty.</p>
+                  <p>We reserve the right to update these terms at any time; please check back regularly.</p>
+                </div>
+              )}
+            </div>
+
+            <div className="accordion-item">
+              <button onClick={() => toggleAccordion(3)}>
+                Shipping & Delivery
+              </button>
+              {openAccordion === 3 && (
+                <div className="accordion-content">
+                  <p>All shipping is done from Norway using reliable international carriers.</p>
+                  <p>Delivery times typically range from 3–10 business days, depending on your location. Tracking information is provided for all shipments.</p>
+                  <p>Customs duties and taxes are the responsibility of the recipient.</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Request Prospectus</h4>
+          <p>Receive our detailed catalog of fabrics and services.</p>
+          <a href="mailto:info@vlisco.work">Request Now</a>
+        </div>
+
+        <div>
+          <h4>Contact Us</h4>
+          <form onSubmit={handleSubmit}>
+            <input type="text" name="name" value={data.name} onChange={handleChange} placeholder="Name" required />
+            <input type="email" name="email" value={data.email} onChange={handleChange} placeholder="Email" required />
+            <textarea name="message" value={data.message} onChange={handleChange} placeholder="Message" rows="4" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
       </div>
 
-      <div
-        className="founder-details"
-        style={{
-          maxWidth: '600px',
-          textAlign: 'center',
-          background: '#fff',
-          padding: '30px 20px',
-          borderRadius: '20px',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-        }}
-      >
-        <h3 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '10px' }}>Marie Patricia Lars</h3>
-        <p style={{ color: '#7b2ff7', fontWeight: '600', marginBottom: '15px' }}>Founder & CEO</p>
-        <p style={{ fontStyle: 'italic', color: '#555', fontSize: '1.1rem' }}>
-          "I started Vlisco to combine passion, creativity, and quality in every fabric we craft.
-          Our mission is to empower businesses with fabrics that inspire confidence and professionalism."
-        </p>
-      </div>
-    </section>
+      <div className="bottom-bar">&copy; {new Date().getFullYear()} Vlisco. All rights reserved.</div>
+
+      {/* Optional CSS for accordion */}
+      <style jsx>{`
+        .accordion button {
+          width: 100%;
+          text-align: left;
+          padding: 10px;
+          background: #f2f2f2;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .accordion-content {
+          padding: 10px;
+          background: #fafafa;
+          border-left: 3px solid #555;
+          margin-bottom: 10px;
+        }
+      `}</style>
+    </footer>
   );
 };
 
-export default FounderSection;
+export default Footer;
